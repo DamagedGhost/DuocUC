@@ -24,20 +24,24 @@ def obtener_primera_coordenada(url_base, bus_recorrido):
     
 # menú principal del programa
 while True:
-    print('MENU PRINCIPAL')
-    print('1. Buscar recorrido')
-    print('2. Salir')
-    try:  # valida que el usuario ingrese un numero
-        key = int(input('Ingrese una opción: '))
-    except ValueError:
-        print('Ingrese un número válido')
-        continue
+    try:
+        print('MENU PRINCIPAL')
+        print('1. Buscar recorrido')
+        print('2. Salir')
+        try:  # valida que el usuario ingrese un numero
+            key = int(input('Ingrese una opción: '))
+        except ValueError:
+            print('Ingrese un número válido')
+            continue
 
-    if key == 1:
-        bus_recorrido = input('Ingrese recorrido: ')  # obtiene el recorrido ingresado por el usuario
-        bus_recorrido = bus_recorrido.upper()  # convierte el recorrido a mayúsculas
-        coordenadas = obtener_primera_coordenada(url_base, bus_recorrido)  # obtiene las coordenadas del recorrido
-        print(coordenadas)  # imprime las coordenadas del recorrido
-    elif key == 2:
-        print('Saliendo...')  # mensaje de despedida
+        if key == 1:
+            bus_recorrido = input('Ingrese recorrido: ')  # obtiene el recorrido ingresado por el usuario
+            bus_recorrido = bus_recorrido.upper()  # convierte el recorrido a mayúsculas
+            coordenadas = obtener_primera_coordenada(url_base, bus_recorrido)  # obtiene las coordenadas del recorrido
+            print(coordenadas)  # imprime las coordenadas del recorrido
+        elif key == 2:
+            print('Saliendo...')  # mensaje de despedida
+            break
+    except Exception as e:
+        print(f'Error: {str(e)}')
         break
